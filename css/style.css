@@ -1,0 +1,441 @@
+* {
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #e7c789;
+    min-height: 100vh;
+    width: 100%;
+}
+
+li a {
+    text-decoration: none;
+    color: #2d2f31;
+}
+
+/* settle all image to be responsive */
+.BigOlImage {
+    width: clamp(35rem, 100%, 100vw);
+}
+
+.BigOlImage img {
+    object-fit: cover;
+    height: min(60vh, 600px);
+    width: 100%;
+}
+
+
+/* settle all text to not be too big or too small depending on vw */
+p {
+    font-size: clamp(1.1rem, 2vw, 1.2rem);
+}
+
+:root {
+    --grid-min: 35ch;
+}
+
+/* settle all div to be responsive via grid */
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--grid-min, 60ch)), 1fr));
+    gap: clamp(1rem, 3vmax, 2rem);
+    margin-bottom: 1rem;
+}
+
+.bigOlText {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    max-width: 60ch;
+    line-height: 1.6rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bigOlText h2 {
+    line-height: 2ch;
+}
+
+/* tiny box with different color background */
+.box {
+    border-radius: 2rem;
+    background-color: #c18a45;
+}
+
+
+/* <<<<<<<<<<<<<<<<<<<<<< navbar*/
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #314b29;
+    color: white;
+    font-size: 1.4rem;
+    text-align: center;
+    width: clamp(35rem, 100%, 100vw);
+
+}
+
+/* brandtitle place but i put animated cup cuz ynot */
+.brandTitle {
+    margin: 1rem;
+    margin-top: 3rem;
+}
+
+/* animated cup */
+.cup {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(90deg, #eaeaea, #dadada, #cacaca, #bababa);
+    border-bottom-left-radius: 40%;
+    border-bottom-right-radius: 40%;
+    position: relative;
+    z-index: 1;
+}
+
+.cup-top {
+    width: 100%;
+    height: .5rem;
+    background: linear-gradient(90deg, #bababa, #cacaca, #dadada, #eaeaea);
+    border-radius: 50%;
+    transform: translateY(-50%);
+    overflow: hidden;
+}
+
+.tea {
+    width: 100%;
+    height: .5rem;
+    background: #6f4e37;
+    border-radius: 50%;
+    transform: translateY(40%);
+
+}
+
+.plate {
+    width: 70px;
+    height: 15px;
+    background: radial-gradient(#9a9a9a, #eaeaea);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-14%, -57%);
+    box-shadow: 0 5px 10px #242424;
+}
+
+.cup::after {
+    content: "";
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    /* background: #000; */
+    border: 8px solid #cacaca;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-radius: 50%;
+    transform: rotate(45deg);
+    top: 14%;
+    right: -27%;
+
+}
+
+.vapour {
+    position: relative;
+    top: -39%;
+    display: flex;
+    justify-content: space-around;
+    margin: 0 0px;
+}
+
+.vapour span {
+    position: relative;
+    width: 4px;
+    height: 13px;
+    background: #fefefe;
+    animation: anim 3s linear infinite;
+    opacity: 0;
+    filter: blur(10px);
+    animation-delay: calc(var(--i) *0.5s);
+}
+
+@keyframes anim {
+    0% {
+        transform: translateY(0)scaleX(1);
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateY(-20px)scaleX(3);
+    }
+
+    100% {
+        transform: translateY(-40px)scaleX(5);
+    }
+}
+
+/*the links */
+.navbar-links ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar-links li {
+    list-style: none;
+}
+
+.navbar-links li a {
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+    display: block;
+}
+
+.navbar-links li:hover {
+    background-color: #508141;
+}
+
+/* hamburger menu icon */
+.toggle-button {
+    position: relative;
+    top: auto;
+    right: 1rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 41px;
+    height: 46px;
+}
+
+.toggle-button .bar {
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+
+}
+
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<index css */
+/* index page image has overlay text when hover */
+.ovlImgTtlContainer {
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    /* Black see-through */
+    width: 100%;
+    transition: .5s ease;
+    opacity: 0;
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+
+}
+
+.ovlImgTtlContainer:hover .overlay {
+    opacity: 1;
+}
+
+/* Quick brief about tea */
+.briefIntro {
+    padding: 1rem;
+}
+
+.briefIntro div p {
+    text-align: center;
+}
+
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<origin css */
+.OriginOfTea {
+    background-color: #c18a45;
+    width: clamp(35rem, 70%, 100vw);
+    border-radius: 0.9rem;
+    margin-top: 1rem;
+    padding: 0.5rem 1.5rem;
+    margin-bottom: 1rem;
+    color: #ffd7a5;
+}
+
+.OriginOfTea a {
+    color: #963586;
+    text-decoration: none;
+}
+
+.OriginOfTea a:hover {
+    text-decoration: underline;
+}
+
+.OriginTeaH2 {
+    background-color: #508141;
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
+    align-items: center;
+    margin: 0;
+    min-height: 12vh;
+    width: clamp(35rem, 100%, 100vw);
+
+}
+
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<,typeoftea css */
+/* mini menu user can expand to go to the content */
+.minimenu {
+    width: 300px;
+    background: #e0c389;
+    margin: 40px auto;
+}
+
+.minimenu label span {
+    padding: 30px;
+    background: #504f09;
+    color: white;
+    font-size: 1.2em;
+    font-variant: small-caps;
+    cursor: pointer;
+    display: block;
+}
+
+.minimenu label span::after {
+    float: right;
+    right: 10%;
+    content: "+";
+}
+
+.slide {
+    clear: both;
+    width: 100%;
+    height: 0px;
+    overflow: hidden;
+    text-align: center;
+    transition: height .4s ease;
+}
+
+.slide li {
+    padding: 30px;
+    list-style: none;
+}
+
+#touch {
+    position: absolute;
+    opacity: 0;
+    height: 0px;
+}
+
+#touch:checked+.slide {
+    height: 500px;
+}
+
+/* white tea */
+.smallBox {
+    background-color: #ffd7a5;
+    border-radius: .5rem;
+    padding: 1rem;
+    margin-bottom: 2rem;
+
+}
+
+.smallBox ul {
+    line-height: 3rem;
+}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<, health benefit css*/
+#notext1,
+#notext2,
+#notext3,
+#notext4,
+#notext5,
+#notext6,
+#notext7 {
+    display: block;
+    margin: auto;
+    transform-style: preserve-3d;
+    background-color: #504f09;
+    padding: 1rem;
+}
+
+#notext1:hover,
+#notext2:hover,
+#notext3:hover,
+#notext4:hover,
+#notext5:hover,
+#notext6:hover,
+#notext7:hover {
+    cursor: pointer;
+    background-color: #314b29;
+    padding: 2rem;
+    transition: all 0.5s;
+}
+
+.HealthBenefits,
+.WhiteTeaBenefits,
+.HerbalTeaBenefits,
+.GreenTeaBenefits,
+.BlackTeaBenefits,
+.OolongTeaBenefits,
+.TeasToAvoid {
+    display: none;
+}
+
+
+/*1440*/
+
+/*720*/
+@media screen and (max-width: 720px) {
+    .container {
+        width: 90%;
+        padding: 30px 35px 40px 35px;
+    }
+}
+
+/*540*/
+@media screen and (max-width: 540px) {
+
+    /* navbar */
+    .toggle-button {
+        display: flex;
+    }
+
+    .navbar-links {
+        display: none;
+    }
+
+    /* formDiv */
+    .container {
+        margin: 40px 0;
+        height: 100%;
+    }
+
+    .container .content {
+        flex-direction: column-reverse;
+    }
+
+    .container .content .left-side {
+        width: 100%;
+        flex-direction: row;
+        margin-top: 40px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .container .content .left-side::before {
+        display: none;
+    }
+
+    .container .content .right-side {
+        width: 100%;
+        margin-left: 0;
+
+    }
+}
