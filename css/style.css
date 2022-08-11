@@ -205,14 +205,14 @@ p {
 
 /* hamburger menu icon */
 .toggle-button {
-    position: relative;
-    top: auto;
-    right: 1rem;
+    position: absolute;
+    top: 2rem;
+    right: 3rem;
     display: none;
     flex-direction: column;
     justify-content: space-between;
-    width: 41px;
-    height: 46px;
+    width: 54px;
+    height: 52px;
 }
 
 .toggle-button .bar {
@@ -409,8 +409,25 @@ p {
 
     .navbar-links {
         display: none;
+        width: 100%;
     }
-
+    .navbar{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .navbar-links ul{
+        width: 100%;
+        flex-direction: column;
+    }
+        -links li{
+        text-align: center;
+    }
+    .navbar-links li a{
+        padding: .5rem 1rem;
+    }
+    .navbar-links.active{
+        display: flex;
+    }
     /* formDiv */
     .container {
         margin: 40px 0;
